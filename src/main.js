@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from './components/hello-world/hello-world.js';
+import Root from './components/root';
 
 ReactDOM.render(
-  <HelloWorld />,
-  document.getElementById('hello-world') // Id of a container element
+  <Root />,
+  document.getElementById('root')
 );
