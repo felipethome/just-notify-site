@@ -12,7 +12,8 @@
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-inline-transition-group": "^2.1.6"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
