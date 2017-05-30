@@ -4,3 +4,4 @@ build/*
 !build/index.html
 dist
 *.log
+.DS_Store
