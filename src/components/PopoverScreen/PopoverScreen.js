@@ -1,6 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class PopoverScreen extends React.Component {
+  static propTypes = {
+    style: PropTypes.object,
+  };
+
   render() {
     const styles = {
       container: {

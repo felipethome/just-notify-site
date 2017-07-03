@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class Description extends React.Component {
   static propTypes = {
+    style: PropTypes.object,
     text: PropTypes.string,
     textColor: PropTypes.string,
     title: PropTypes.string,

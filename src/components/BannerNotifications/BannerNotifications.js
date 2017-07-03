@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Transition from 'react-inline-transition-group';
 import getShadow from '../getShadow';
 
 export default class BannerNotifications extends React.Component {
+  static propTypes = {
+    style: PropTypes.object,
+  };
+
   render() {
     const styles = {
       container: {
@@ -43,7 +48,7 @@ export default class BannerNotifications extends React.Component {
         opacity: 1,
         transform: 'translate(0px)',
         transition: 'opacity 800ms ease-in, transform 500ms',
-      }
+      },
     };
 
     const children = [

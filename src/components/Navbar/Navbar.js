@@ -8,6 +8,7 @@ export default class Navbar extends React.Component {
     bgColor: PropTypes.string,
     hasShadow: PropTypes.bool,
     isFixed: PropTypes.bool,
+    style: PropTypes.object,
     textColor: PropTypes.string,
   };
 

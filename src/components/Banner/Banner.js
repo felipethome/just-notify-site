@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BannerLogo from '../BannerLogo';
 import BannerNotifications from '../BannerNotifications';
 
 export default class Banner extends React.Component {
+  static propTypes = {
+    style: PropTypes.object,
+  };
+
   render() {
     const styles = {
       container: {

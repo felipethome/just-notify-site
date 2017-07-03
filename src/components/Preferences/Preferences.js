@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PreferencesScreen from '../PreferencesScreen';
 import Description from '../Description';
 
 export default class Preferences extends React.Component {
+  static propTypes = {
+    style: PropTypes.object,
+  };
+
   render() {
     const styles = {
       container: {

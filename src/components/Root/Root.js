@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Navbar from '../navbar';
 import Button from '../button';
 import Banner from '../Banner';
@@ -8,6 +9,10 @@ import About from '../About';
 import Footer from '../Footer';
 
 export default class Root extends React.Component {
+  static propTypes = {
+    style: PropTypes.object,
+  };
+
   render() {
     const styles = {
       container: {
