@@ -15,34 +15,21 @@ var uglify = require('gulp-uglify');
 var watchify = require('watchify');
 
 var files = {
-  // Add here any library dependencies your jsx files have
+  // Dependencies.
   dependencies: [
     'react',
     'react-dom',
-
-    // If you add any of the following addons to your project don't forget to
-    // uncomment the respective line, otherwise you will end up with two copies
-    // of React in your app.
-    // 'react-addons-transition-group',
-    // 'react-addons-css-transition-group',
-
-    // Don't forget to uncomment this line when using react-perf since it needs
-    // to be in the same file React is.
-    // 'react-addons-perf',
   ],
 
   browserify: [
     './src/main.js',
   ],
 
-  // Add your css files here, if there is any
+  // CSS files.
   css: [],
 };
 
-// ----- You probably will not need to change anything under this line -----
-
 var browserifyTask = function (options) {
-
   var bundler = browserify({
     entries: [options.src],
     transform: [
@@ -88,11 +75,9 @@ var browserifyTask = function (options) {
   }
 
   return rebundle();
-
 };
 
 var browserifyDepsTask = function (options) {
-
   var vendorsBundler = browserify({
     debug: options.development,
     require: files.dependencies,
@@ -110,11 +95,9 @@ var browserifyDepsTask = function (options) {
     .pipe(notify(function () {
       console.log('VENDORS bundle built in ' + (Date.now() - start) + 'ms');
     }));
-
 };
 
 var cssTask = function (options) {
-
   var start = new Date();
   console.log('Building CSS bundle');
   return gulp.src(options.src)
@@ -125,11 +108,9 @@ var cssTask = function (options) {
     .pipe(notify(function () {
       console.log('CSS bundle built in ' + (Date.now() - start) + 'ms');
     }));
-
 };
 
 gulp.task('deploy', function () {
-
   var browserifyDepsOpt = {
     development: false,
     src: files.dependencies,
@@ -156,11 +137,9 @@ gulp.task('deploy', function () {
     browserifyTask(browserifyOpt),
     cssTask(cssOpt)
   );
-
 });
 
 gulp.task('default', function () {
-
   var browserifyDepsOpt = {
     development: true,
     src: files.dependencies,
@@ -199,5 +178,4 @@ gulp.task('default', function () {
     browserifyTask(browserifyOpt),
     cssTask(cssOpt)
   );
-
 });
