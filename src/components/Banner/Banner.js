@@ -1,26 +1,24 @@
 import React from 'react';
-import Logo from '../logo';
-import Notifications from '../notifications';
+import BannerLogo from '../BannerLogo';
+import BannerNotifications from '../BannerNotifications';
 
-export default class MainCard extends React.Component {
-
+export default class Banner extends React.Component {
   render() {
     const styles = {
       container: {
         display: 'flex',
         width: '100%',
         flexWrap: 'wrap',
-        background: 'linear-gradient(90deg, #212121, #424242)',
+        background: '#212121',
         paddingBottom: '20px',
       },
     };
 
     return (
       <div style={Object.assign({}, styles.container, this.props.style)}>
-        <Logo />
-        <Notifications />
+        <BannerLogo />
+        <BannerNotifications />
       </div>
     );
   }
-
 }

@@ -1,3 +1,5 @@
+/* Shadows from MaterializeCSS.com */
+
 const shadows = {
   '0dp': 'none',
 

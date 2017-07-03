@@ -1,9 +1,8 @@
 import React from 'react';
-import Popover from '../popover';
-import Description from '../description';
+import PopoverScreen from '../PopoverScreen';
+import Description from '../Description';
 
-export default class FirstCard extends React.Component {
-
+export default class Popover extends React.Component {
   render() {
     const styles = {
       container: {
@@ -22,9 +21,8 @@ export default class FirstCard extends React.Component {
           title="Support to multiple accounts"
           text="You can have up to 5 Google accounts and configure each one separately"
         />
-        <Popover />
+        <PopoverScreen />
       </div>
     );
   }
-
 }

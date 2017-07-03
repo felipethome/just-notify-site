@@ -1,9 +1,8 @@
 import React from 'react';
-import Button from '../button';
+import Button from '../Button';
 import getShadow from '../getShadow';
 
-class Logo extends React.Component {
-
+export default class BannerLogo extends React.Component {
   render() {
     const styles = {
       container: {
@@ -33,7 +32,7 @@ class Logo extends React.Component {
       button: {
         background: '#43A047',
         boxShadow: getShadow('2dp'),
-        fontSize: '20px',
+        fontSize: '18px',
         textTransform: 'none',
         height: 'auto',
       },
@@ -51,7 +50,4 @@ class Logo extends React.Component {
       </div>
     );
   }
-
 }
-
-export default Logo;

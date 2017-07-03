@@ -1,8 +1,7 @@
 import React from 'react';
-import Description from '../description';
+import Description from '../Description';
 
-export default class ThirdCard extends React.Component {
-
+export default class About extends React.Component {
   render() {
     const styles = {
       container: {
@@ -31,5 +30,4 @@ export default class ThirdCard extends React.Component {
       </div>
     );
   }
-
 }

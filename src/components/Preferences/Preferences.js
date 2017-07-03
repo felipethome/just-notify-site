@@ -1,9 +1,8 @@
 import React from 'react';
-import Preferences from '../preferences';
-import Description from '../description';
+import PreferencesScreen from '../PreferencesScreen';
+import Description from '../Description';
 
-export default class SecondCard extends React.Component {
-
+export default class Preferences extends React.Component {
   render() {
     const styles = {
       container: {
@@ -21,9 +20,8 @@ export default class SecondCard extends React.Component {
           title="Customize your notifications"
           text="Let your notifications exactly the way you need"
         />
-        <Preferences />
+        <PreferencesScreen />
       </div>
     );
   }
-
 }

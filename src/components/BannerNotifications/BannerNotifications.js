@@ -2,8 +2,7 @@ import React from 'react';
 import Transition from 'react-inline-transition-group';
 import getShadow from '../getShadow';
 
-export default class Notifications extends React.Component {
-
+export default class BannerNotifications extends React.Component {
   render() {
     const styles = {
       container: {
@@ -37,11 +36,13 @@ export default class Notifications extends React.Component {
 
       base: {
         opacity: 0,
+        transform: 'translate(200px)',
       },
 
       appear: {
         opacity: 1,
-        transition: 'opacity 1000ms ease-in',
+        transform: 'translate(0px)',
+        transition: 'opacity 800ms ease-in, transform 500ms',
       }
     };
 
@@ -65,5 +66,4 @@ export default class Notifications extends React.Component {
       </Transition>
     );
   }
-
 }
