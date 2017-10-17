@@ -19,7 +19,7 @@ export default class BannerLogo extends React.Component {
           The power of MacOS notifications to your Gmail/Inbox accounts
         </div>
         <div className={classes.buttonContainer}>
-          <Button classes={{button: classes.button}}>Buy on App Store</Button>
+          <Button classes={{button: classes.button}}>Download v1.0</Button>
         </div>
       </div>
     );

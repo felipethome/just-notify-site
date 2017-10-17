@@ -48,7 +48,7 @@ export default class BannerNotifications extends React.Component {
     const styles = {
       base: {
         opacity: 0,
-        transform: 'translate(200px)',
+        transform: 'translate(50px)',
       },
 
       appear: {
