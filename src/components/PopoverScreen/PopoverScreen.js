@@ -1,29 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import classes from './PopoverScreen.css';
+
 export default class PopoverScreen extends React.Component {
+  static displayName = 'PopoverScreen';
+
   static propTypes = {
     style: PropTypes.object,
   };
 
   render() {
-    const styles = {
-      container: {
-        display: 'flex',
-        justifyContent: 'center',
-        width: '50%',
-      },
-
-      image: {
-        width: '300px',
-        height: 'auto',
-      },
-    };
-
     return (
-      <div style={Object.assign({}, styles.container, this.props.style)}>
+      <div className={classes.container}>
         <div>
-          <img style={styles.image} src="img/popover.png" />
+          <img className={classes.image} src="img/popover.png" />
         </div>
       </div>
     );

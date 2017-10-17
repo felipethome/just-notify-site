@@ -3,24 +3,18 @@ import PropTypes from 'prop-types';
 import BannerLogo from '../BannerLogo';
 import BannerNotifications from '../BannerNotifications';
 
+import classes from './Banner.css';
+
 export default class Banner extends React.Component {
+  static displayName = 'Banner';
+
   static propTypes = {
     style: PropTypes.object,
   };
 
   render() {
-    const styles = {
-      container: {
-        display: 'flex',
-        width: '100%',
-        flexWrap: 'wrap',
-        background: '#212121',
-        paddingBottom: '20px',
-      },
-    };
-
     return (
-      <div style={Object.assign({}, styles.container, this.props.style)}>
+      <div className={classes.container}>
         <BannerLogo />
         <BannerNotifications />
       </div>

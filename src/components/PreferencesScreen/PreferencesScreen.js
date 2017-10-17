@@ -1,24 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import classes from './PreferencesScreen.css';
 
 export default class PreferencesScreen extends React.Component {
+  static displayName = 'PreferencesScreen';
+
+  static propTypes = {
+    style: PropTypes.object,
+  };
+
   render() {
-    const styles = {
-      container: {
-        display: 'flex',
-        justifyContent: 'center',
-        width: '50%',
-      },
-
-      image: {
-        width: '500px',
-        height: 'auto',
-      },
-    };
-
     return (
-      <div style={styles.container}>
+      <div className={classes.container} style={this.props.style}>
         <div>
-          <img style={styles.image} src="img/preferences.png" />
+          <img className={classes.image} src="img/preferences.png" />
         </div>
       </div>
     );

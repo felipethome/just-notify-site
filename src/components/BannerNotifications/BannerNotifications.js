@@ -1,44 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Transition from 'react-inline-transition-group';
-import getShadow from '../getShadow';
+import CancelablePromise from '../../CancelablePromise';
+
+import classes from './BannerNotifications.css';
+
+const imagePaths = [
+  'img/informative.png',
+  'img/action.png',
+  'img/reply.png',
+];
 
 export default class BannerNotifications extends React.Component {
+  static displayName = 'BannerNotifications';
+
   static propTypes = {
     style: PropTypes.object,
   };
 
+  state = {
+    show: false,
+  };
+
+  componentDidMount() {
+    this._Cancelable = new CancelablePromise();
+
+    // Load images before the animation so they are stored in the HTTP cache.
+    const promises = imagePaths.map((src) => {
+      return this._Cancelable.make(new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = reject;
+      }));
+    });
+
+    Promise.all(promises).then(() => {
+      this.setState(() => ({show: true}));
+    });
+  }
+
+  componentWillUnmount() {
+    this._Cancelable.cance();
+  }
+
   render() {
     const styles = {
-      container: {
-        width: '50%',
-        textAlign: 'center',
-      },
-
-      imageContainer: {
-        width: '400px',
-        marginTop: '20px',
-        boxShadow: getShadow('2dp'),
-        borderRadius: '10px',
-        backgroundSize: '400px',
-        display: 'inline-block',
-      },
-
-      image1: {
-        backgroundImage: 'url(img/informative.png)',
-        height: '73px',
-      },
-
-      image2: {
-        backgroundImage: 'url(img/action.png)',
-        height: '73px',
-      },
-
-      image3: {
-        backgroundImage: 'url(img/reply.png)',
-        height: '148px',
-      },
-
       base: {
         opacity: 0,
         transform: 'translate(200px)',
@@ -51,11 +58,15 @@ export default class BannerNotifications extends React.Component {
       },
     };
 
-    const children = [
-      <div key="1" style={Object.assign({}, styles.imageContainer, styles.image1)} />,
-      <div key="2" style={Object.assign({}, styles.imageContainer, styles.image2)} />,
-      <div key="3" style={Object.assign({}, styles.imageContainer, styles.image3)} />,
-    ];
+    let children = [];
+
+    if (this.state.show) {
+      children = [
+        <img key="1" src="img/informative.png" className={classes.image} />,
+        <img key="2" src="img/action.png" className={classes.image} />,
+        <img key="3" src="img/reply.png" className={classes.image} />,
+      ];
+    }
 
     return (
       <Transition
@@ -65,7 +76,7 @@ export default class BannerNotifications extends React.Component {
           enter: styles.appear,
         }}
         onPhaseEnd={this._handlePhaseEnd}
-        style={Object.assign({}, styles.container, this.props.style)}
+        className={classes.container}
       >
         {children}
       </Transition>
