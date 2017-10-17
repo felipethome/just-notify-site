@@ -1,16 +1,18 @@
 {
   "name": "just-notify-site",
   "version": "1.0.0",
-  "description": "The website for JustNotify App.",
-  "repository": "https://github.com/felipethome/react-seed-es6",
+  "description": "The website for the JustNotify App.",
+  "repository": "https://github.com/felipethome/just-notify-site",
   "author": "Felipe Thome",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/felipethome/react-seed-es6/issues"
+    "url": "https://github.com/felipethome/just-notify-site/issues"
   },
-  "homepage": "https://github.com/felipethome/react-seed-es6",
+  "homepage": "https://github.com/felipethome/just-notify-site",
   "dependencies": {
+    "babel-core": "^6.26.0",
     "classnames": "^2.2.5",
+    "css-loader": "^0.28.7",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -26,29 +28,18 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "babelify": "^7.3.0",
-    "browserify": "^14.4.0",
-    "css-loader": "^0.28.7",
+    "clean-webpack-plugin": "^0.1.17",
     "eslint": "^4.1.1",
     "eslint-plugin-react": "^7.1.0",
     "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-connect": "^5.0.0",
-    "gulp-cssmin": "^0.2.0",
-    "gulp-if": "^2.0.2",
-    "gulp-notify": "^3.0.0",
-    "gulp-streamify": "^1.0.2",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "merge-stream": "^1.0.1",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.9.0",
+    "gulp-gh-pages": "^0.5.4",
     "webpack": "^3.8.0",
     "webpack-dev-server": "^2.9.2"
   },
   "scripts": {
     "lint": "eslint src",
     "dev": "webpack-dev-server",
+    "build": "NODE_ENV=production webpack --config webpack.prod.js",
     "deploy": "gulp deploy"
   }
 }
